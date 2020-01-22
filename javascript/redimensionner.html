@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>redimensionner un div</title>
+	<link rel="stylesheet" type="text/css" href="./style/bootstrap-4.4.1-dist/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+
+</head>
+<body>
+ <p id="texte" style="font-size: 15px;" onclick="return GrandirTexte();" > 
+ 	je suis baye cheikh fall
+ </p>
+       <button onclick="return boutton1();">bouton1</button>
+       <button onclick="return boutton2();">bouton2</button>
+       <button onclick="return boutton3();">bouton3</button>
+       <button onclick="return boutton4();">bouton4</button>
+       <button onclick="return boutton5();">bouton5</button>
+
+ <div style="background: blue; width: 100px; height: 100px; margin-top: 200px; margin-left: 200px;" id="rectangle">
+ </div>
+ <script type="text/javascript">
+ 	function GrandirTexte(){
+ 		var texte = document.getElementById('texte');
+ 		if(texte.style.fontSize =='15px'){
+ 			texte.style.fontSize ='30px';
+ 		}
+ 		else{
+ 			texte.style.fontSize ='15px';
+ 		}
+ 		
+       }
+       var hauteur=100;
+       function boutton1(){
+       	var boutton1 = document.getElementById('rectangle');
+         if(hauteur<300){
+            	hauteur+=50;
+            	 boutton1.style.height= hauteur+'px';
+            }
+            else{
+            	boutton1.style.height= '100px';
+            }
+     }
+        function boutton2(){
+        	var boutton2 = document.getElementById('rectangle');
+        	boutton2.style.background='green';
+        }
+        function boutton3(){
+        	var boutton3 = document.getElementById('rectangle');
+        	boutton3.style.background=('blue');
+        }
+         function boutton4(){
+        	var boutton4 = document.getElementById('rectangle');
+        	boutton4.style.display=('none');
+        }
+         function boutton5(){
+        	var boutton5 = document.getElementById('rectangle');
+        	boutton5.style.display=('block');
+        }
+
+ </script>
+</body>
+</html>

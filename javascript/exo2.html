@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function Verification(){
+		do{
+			var nom = prompt('donner votre nom');
+			if(nom=null){
+				alert('le nom est vide');
+			}
+		}while(nom=null)
+		
+		var age = prompt("donner votre age" + " " +nom);
+
+		if(age < 18){
+			document.getElementById("affiche").innerHTML = "<h1>" +"vous etez mineur "+nom +"</h1>";
+		}
+		if(age >=18  && age <=45){
+			document.getElementById("affiche").innerHTML = "<h1>" +"vous etez majeur "+nom +"</h1>";
+			
+		}
+		if(age > 45){
+		document.getElementById("affiche").innerHTML = "<h1>" +"vous etez adulte "+nom +"</h1>";
+		
+
+		}
+
+	}
+
+</script>
+<span>
+	Cliquez sur le ok pour savoir si vous etez adulte ou majeur
+</soan>
+<input type="submit" name="" bgcolor="blue" value="ok" onclick="return Verification();">
+<p id="affiche"></p>
+</body>
+</html>

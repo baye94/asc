@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body   >
+<!-- <SCRIPT LANGUAGE="Javascript">
+var alea=Math.round(Math.random()*99)+1;
+var coup=0;
+function test(valeur)
+{
+coup=coup+1;
+if (coup > 6)
+	{
+	partie=confirm("T'as perdu !\nIl fallait trouver : " + alea + "\nNouvelle partie ?");
+	if (partie)
+		{
+		document.form1.commentaire.value="Nouvelle partie...";
+		coup=0;
+		alea=Math.round(Math.random()*99)+1;
+		document.form1.coup.value=0;
+		valeur.value="";
+		}
+		else
+		{
+		window.close();
+		}
+	}
+	else
+	{
+	if (valeur.value < alea)
+		document.form1.commentaire.value="Trop petit !";
+	if (valeur.value > alea)
+		document.form1.commentaire.value="Trop grand !" ;
+	if (valeur.value == alea)
+		document.form1.commentaire.value="Gagné !!!";
+	document.form1.coup.value=coup;
+	}
+}
+</SCRIPT>
+<BODY>
+<CENTER><FONT COLOR="BLUE" SIZE="6">
+Cherchez un nombre entre 1 et 100 :</CENTER></FONT><BR><BR>
+<FORM NAME="form1">
+<CENTER>Entrez un nombre : <INPUT TYPE="text" name="valeur" size=5 style="background-color=aqua;color=red"></CENTER><BR>
+<BR>
+<CENTER><INPUT TYPE="Button" OnClick="test(valeur)" Value="Calcul"></CENTER>
+<BR><BR>
+<CENTER><INPUT TYPE="text" name="commentaire" size=20 value="Bonne chance..."></CENTER>
+<BR><BR>
+<CENTER>Coup Numéro : <INPUT TYPE="text" name="coup" size=3></CENTER>
+</FORM> -->
+
+ 	<canvas id="canvas" width="700" height="400"style="border:1px solid #000000; margin-top: 100px; margin-left: 400px;">
+</canvas>
+
+ 
+
+ <script type="text/javascript">
+ 	var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext('2d');
+canvas.width = 600;
+canvas.height = 600;
+var object = {
+height: 40,
+width: 40,
+x: 10,
+y: 10, 
+color: "#FF0000"        
+}
+
+var obstacle1 = {
+height: 80,
+width: 40,
+x: 100,
+y: 10, 
+color: "#FF0000"        
+}
+
+document.addEventListener('keydown', function(event) {
+//left
+if(event.keyCode == 37 && object.x>10) {
+  if(object.x >(obstacle1.x +obstacle1.width + 5)){
+	     object.x -= 15;	
+	      }
+	       if(object.y > (obstacle1.y +80)){
+	      	 object.x -= 15;
+	      }
+
+}
+//top
+else if(event.keyCode == 38 && object.y>0 ) {
+   if(object.y> (object.y + obstacle1.y.height)){
+   	 object.y -= 15;
+   }
+   if(objet.x > (obstacle1.x + obstacle1.width-15)){
+   	object.y -=15;
+   }
+   if(object.x <(obstacle1.x-25)){
+   	object.y -=15;
+   }
+   if(object.y <(obstacle1.y-25)){
+   		object.y -=15;
+   }
+}
+//right
+else if(event.keyCode == 39 && (object.x < (canvas.width-50))) {
+	 if(object.x <(obstacle1.x -45)){
+	     object.x += 15;	
+	      }
+	      if(object.y > (obstacle1.y +80)){
+	      	 object.x += 15;
+	      }
+}
+//bottom
+else if(event.keyCode == 40 && (object.y < (canvas.height-50))) {
+object.y += 15;
+}
+});
+function renderCanvas(){
+ctx.fillStyle = 'white';
+ctx.fillRect(0, 0, 600, 600);
+} 
+function renderObject(){
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(object.x, object.y, object.width, object.height);
+}
+
+function renderObstacle1(){
+ctx.fillStyle = "yellow";
+ctx.fillRect(obstacle1.x, obstacle1.y, obstacle1.width, obstacle1.height);
+}
+
+
+function run(){
+renderCanvas();
+renderObject();
+renderObstacle1();
+}
+setInterval(run, 10);
+ </script>
+</body>
+</html>
